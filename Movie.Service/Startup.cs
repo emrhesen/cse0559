@@ -38,7 +38,7 @@ namespace Movie.Service
             services.AddAutoMapper()
                 .AddSingleton(env)
                 .AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Movies API", Version = "v1" }))
-                .AddMvcCore()
+                .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             return EventFlowOptions.New
