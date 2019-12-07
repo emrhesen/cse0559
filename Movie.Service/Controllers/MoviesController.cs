@@ -24,6 +24,7 @@ namespace Movie.Service.Controllers
             _movieQueryService = movieQueryService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetMovie(string Id, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(Id))
@@ -35,6 +36,7 @@ namespace Movie.Service.Controllers
             return new JsonResult(result);
         }
 
+        [HttpPost]
         public async Task<IActionResult> CreateMovie()
         {
             return Ok();
