@@ -46,6 +46,19 @@
           </e>
         </e>
       </e>
+      <e p="EventStore.App" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EventStore.App.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="EventStore.App.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Startup.cs" t="Include" />
+      </e>
       <e p="EventStore.Middleware" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="EventSourcingDbContext.cs" t="Include" />
@@ -141,6 +154,7 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="src" t="Include">
+        <e p="Apps" t="Include" />
         <e p="Infrastructures" t="Include" />
         <e p="MicroServices" t="Include">
           <e p="Movie" t="Include" />
