@@ -4,7 +4,8 @@ using EventFlow.Aggregates;
 namespace Domain.Business.Movie
 {
     public class MovieAggregateState : AggregateState<MovieAggregate,MovieId,MovieAggregateState>,
-        IApply<MovieRegisteredEvent>
+        IApply<MovieRegisteredEvent>,
+        IApply<MovieUpdatedEvent>
     {
 
         public MovieEntity Entity { get; set; }
@@ -12,6 +13,11 @@ namespace Domain.Business.Movie
         public void Apply(MovieRegisteredEvent aggregateEvent)
         {
             Entity = aggregateEvent.Movie;
+        }
+
+        public void Apply(MovieUpdatedEvent aggregateEvent)
+        {
+            
         }
 
         public void LoadSnapshot(MovieSnapshot snapshot)

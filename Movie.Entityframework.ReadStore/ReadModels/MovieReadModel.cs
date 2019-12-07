@@ -8,7 +8,8 @@ using EventFlow.ReadStores;
 namespace Movie.Entityframework.ReadStore.ReadModels
 {
     public class MovieReadModel : IReadModel,
-        IAmReadModelFor<MovieAggregate,MovieId,MovieRegisterCompleted>
+        IAmReadModelFor<MovieAggregate,MovieId,MovieRegisteredEvent>,
+        IAmReadModelFor<MovieAggregate,MovieId,MovieUpdatedEvent>
     {
         [Key]
         [Column("Id")]
@@ -17,14 +18,23 @@ namespace Movie.Entityframework.ReadStore.ReadModels
         public string Director { get; set; }
         public int Budget { get; set; }
         
-        public void Apply(IReadModelContext context, IDomainEvent<MovieAggregate, MovieId, MovieRegisterCompleted> domainEvent)
+        public void Apply(IReadModelContext context, IDomainEvent<MovieAggregate, MovieId, MovieRegisteredEvent> domainEvent)
         {
-            var movie = domainEvent.AggregateEvent.Entity;
+            var movie = domainEvent.AggregateEvent.Movie;
 
             AggregateId = domainEvent.AggregateIdentity.ToString();
             Name = movie.Name;
             Director = movie.Director;
             Budget = movie.Budget;
+        }
+
+        public void Apply(IReadModelContext context, IDomainEvent<MovieAggregate, MovieId, MovieUpdatedEvent> domainEvent)
+        {
+            var updatedMovie = domainEvent.AggregateEvent;
+
+            Name = updatedMovie.Name;
+            Director = updatedMovie.Director;
+            Budget = updatedMovie.Budget;
         }
 
         public MovieEntity ToMovie()

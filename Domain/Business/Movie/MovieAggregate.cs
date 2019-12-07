@@ -11,7 +11,7 @@ namespace Domain.Business.Movie
     {
         private readonly MovieAggregateState _movieAggregateState = new MovieAggregateState();
         
-        public MovieAggregate(MovieId Id) : base(Id, SnapshotEveryFewVersionsStrategy.With(10))
+        public MovieAggregate(MovieId Id) : base(Id, SnapshotEveryFewVersionsStrategy.With(2))
         {
             Register(_movieAggregateState);
         }
@@ -30,9 +30,17 @@ namespace Domain.Business.Movie
             return ExecutionResult.Success();
         }
 
-        public void RegisterComplete(MovieEntity entity)
+        public IExecutionResult UpdateMovie(string name, string director, int budget)
         {
-            Emit(new MovieRegisterCompleted(entity));
+            var movie = _movieAggregateState.Entity;
+
+            movie.Name = name;
+            movie.Director = director;
+            movie.Budget = budget;
+
+            Emit(new MovieUpdatedEvent(name,director,budget));
+
+            return ExecutionResult.Success();
         }
 
         #endregion

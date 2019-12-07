@@ -32,11 +32,12 @@ namespace EventStore.App
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e);
             }
             finally
             {
                 Console.WriteLine("Event store is UP now!!");
+                Console.ReadLine();
             }
         }
     }

@@ -46,5 +46,22 @@ namespace Movie.Service.Controllers
             
             return Ok();
         }
+
+        [HttpPost("save/updateMovie")]
+        public async Task<IActionResult> UpdateMovie(MovieDTO movie, CancellationToken cancellationToken)
+        {
+            await _commandBus.PublishAsync(new UpdateMovieCommand(MovieId.With(movie.Id),movie.Name, movie.Director, movie.Budget),
+                cancellationToken);
+
+            return Ok();
+        }
+
+        [HttpGet("list/movie")]
+        public async Task<IActionResult> ListMovie(CancellationToken cancellationToken)
+        {
+            var data = await _movieQueryService.ListMovie(cancellationToken);
+
+            return Ok(data);
+        }
     }
 }

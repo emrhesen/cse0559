@@ -20,5 +20,10 @@ namespace Movie.Entityframework.ReadStore.Services
         {
             await _commandBus.PublishAsync(new RegisterMovieCommand(entity.Name,entity.Director,entity.Budget), ctx);
         }
+
+        public async Task UpdateMovieAsync(MovieId movieId, string name, string director, int budget, CancellationToken ctx)
+        {
+            await _commandBus.PublishAsync(new UpdateMovieCommand(movieId,name, director, budget), ctx);
+        }
     }
 }
