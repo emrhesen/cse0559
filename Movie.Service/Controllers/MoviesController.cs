@@ -26,7 +26,7 @@ namespace Movie.Service.Controllers
             _movieQueryService = movieQueryService;
         }
 
-        [HttpGet]
+        [HttpGet("get/movie")]
         public async Task<IActionResult> GetMovie(string Id, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(Id))
