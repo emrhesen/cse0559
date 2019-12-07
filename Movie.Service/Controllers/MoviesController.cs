@@ -5,9 +5,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using Domain.Application.QueryServices;
 using Domain.Business.Movie;
+using Domain.Business.Movie.Commands;
 using EventFlow;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Movie.Service.DTO;
 
 namespace Movie.Service.Controllers
 {
@@ -36,9 +38,12 @@ namespace Movie.Service.Controllers
             return new JsonResult(result);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateMovie()
+        [HttpPost("save/createMovie")]
+        public async Task<IActionResult> CreateMovie(MovieDTO movie, CancellationToken cancellationToken)
         {
+            await _commandBus.PublishAsync(new RegisterMovieCommand(movie.Name, movie.Director, movie.Budget),
+                cancellationToken);
+            
             return Ok();
         }
     }

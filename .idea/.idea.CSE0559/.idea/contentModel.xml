@@ -115,6 +115,30 @@
           <e p="MovieQueryService.cs" t="Include" />
         </e>
       </e>
+      <e p="Movie.Service" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="MoviesController.cs" t="Include" />
+        </e>
+        <e p="DTO" t="Include">
+          <e p="MovieDTO.cs" t="Include" />
+        </e>
+        <e p="MappingProfile" t="Include">
+          <e p="MovieMapperProfile.cs" t="Include" />
+        </e>
+        <e p="Movie.Service.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Movie.Service.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Startup.cs" t="Include" />
+      </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="src" t="Include">
         <e p="Infrastructures" t="Include" />
