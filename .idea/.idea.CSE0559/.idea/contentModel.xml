@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_CSE0559.-1890934321.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p=".git/info/exclude" t="IncludeRecursive" />
+      <e p="CSE0559.sln" t="IncludeFlat" />
+      <e p="Domain" t="IncludeRecursive">
+        <e p="Application" t="Include">
+          <e p="CommandServices" t="Include">
+            <e p="IMovieCommandService.cs" t="Include" />
+          </e>
+          <e p="QueryServices" t="Include">
+            <e p="IMovieQueryService.cs" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Business" t="Include">
+          <e p="Movie" t="Include">
+            <e p="Commands" t="Include">
+              <e p="MovieRegisterCompleteCommand.cs" t="Include" />
+              <e p="RegisterMovieCommand.cs" t="Include" />
+            </e>
+            <e p="Events" t="Include">
+              <e p="MovieRegisterCompleted.cs" t="Include" />
+              <e p="MovieRegisteredEvent.cs" t="Include" />
+            </e>
+            <e p="MovieAggregate.cs" t="Include" />
+            <e p="MovieAggregateState.cs" t="Include" />
+            <e p="MovieEntity.cs" t="Include" />
+            <e p="MovieId.cs" t="Include" />
+            <e p="MovieSnapshot.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Domain.csproj" t="IncludeRecursive" />
+        <e p="Module" t="Include">
+          <e p="DomainModule.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="EventStore.Middleware" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EventSourcingDbContext.cs" t="Include" />
+        <e p="EventSourcingDbContextProvider.cs" t="Include" />
+        <e p="EventStore.Middleware.csproj" t="IncludeRecursive" />
+        <e p="Module" t="Include">
+          <e p="EventSourcingModule.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="EventStore.Middleware.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Infrastructure" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Configurations" t="Include">
+          <e p="ConfigurationAttribute.cs" t="Include" />
+          <e p="ConfigurationBinder.cs" t="Include" />
+          <e p="EnvironmentConfiguration.cs" t="Include" />
+          <e p="Identifiers.cs" t="Include" />
+          <e p="IdentityConfiguration.cs" t="Include" />
+          <e p="JwtConfiguration.cs" t="Include" />
+          <e p="ServiceConfiguration.cs" t="Include" />
+        </e>
+        <e p="Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Infrastructure.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RabbitMQ" t="Include">
+          <e p="RabbitConsumePersistenceService.cs" t="Include" />
+        </e>
+        <e p="ReadStores" t="Include">
+          <e p="EfSearchableReadStore.cs" t="Include" />
+          <e p="InMemorySearchableReadStore.cs" t="Include" />
+          <e p="ISearchableReadModelStore.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Movie.Entityframework.ReadStore" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EntityframeworkContext" t="Include">
+          <e p="MovieContext.cs" t="Include" />
+          <e p="MovieContextProvider.cs" t="Include" />
+        </e>
+        <e p="Module" t="Include">
+          <e p="MovieReadStoreModule.cs" t="Include" />
+        </e>
+        <e p="Movie.Entityframework.ReadStore.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Movie.Entityframework.ReadStore.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ReadModels" t="Include">
+          <e p="MovieReadModel.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="MovieCommandService.cs" t="Include" />
+          <e p="MovieQueryService.cs" t="Include" />
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="src" t="Include">
+        <e p="Infrastructures" t="Include" />
+        <e p="MicroServices" t="Include">
+          <e p="Movie" t="Include" />
+        </e>
+      </e>
+    </e>
+  </component>
+</project>
