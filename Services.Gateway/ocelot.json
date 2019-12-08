@@ -1,0 +1,63 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "rabbitmq",
+          "Port": 15672
+        }
+      ],
+      "UpstreamPathTemplate": "/rabbitmq/{everything}"
+    },
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "trackers",
+          "Port": 80
+        }
+      ],
+      "SwaggerKey": "trackers",
+      "UpstreamPathTemplate": "/api/v1/trackers/{everything}"
+    },
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "vehicles",
+          "Port": 80
+        }
+      ],
+      "SwaggerKey": "vehicles",
+      "UpstreamPathTemplate": "/api/v1/vehicles/{everything}"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "trackers",
+      "Config": [
+        {
+          "Name": "Trackers API",
+          "Version": "v1",
+          "Url": "http://trackers/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "vehicles",
+      "Config": [
+        {
+          "Name": "Vehicles API",
+          "Version": "v1",
+          "Url": "http://vehicles/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {}
+}

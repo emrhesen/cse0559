@@ -19,6 +19,14 @@ namespace Services.Gateway
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((host, cfg) =>
+            {
+                cfg.SetBasePath(host.HostingEnvironment.ContentRootPath)
+                        .AddJsonFile("appsettings.json", true, true)
+                        .AddJsonFile($"appsettings.{host.HostingEnvironment.EnvironmentName}.json", true, true)
+                        .AddJsonFile("ocelot.json")
+                        .AddEnvironmentVariables();
+            })
                 .UseStartup<Startup>();
     }
 }
