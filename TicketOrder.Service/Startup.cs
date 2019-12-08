@@ -14,12 +14,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Movie.Entityframework.ReadStore.EntityframeworkContext;
-using Movie.Entityframework.ReadStore.Module;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
+using Ticket.Entityframework.ReadStore.EntityframeworkContext;
+using Ticket.Entityframework.ReadStore.Module;
 
-namespace Movie.Service
+namespace TicketOrder.Service
 {
     public class Startup
     {
@@ -30,27 +30,28 @@ namespace Movie.Service
             _configuration = configuration;
         }
 
+        
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var env = EnvironmentConfiguration.Bind(_configuration);
 
             services.AddAutoMapper()
-                .AddSingleton(env)
-                .AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Movies API", Version = "v1" }))
-                .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+               .AddSingleton(env)
+               .AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Tickets API", Version = "v1" }))
+               .AddMvc()
+               .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             return EventFlowOptions.New
                 .UseServiceCollection(services)
                 .AddAspNetCore()
                 .UseConsoleLog()
                 .RegisterModule<DomainModule>()
-                .RegisterModule<MovieReadStoreModule>()
+                .RegisterModule<TicketReadStoreModule>()
                 .RegisterModule<EventSourcingModule>()
                 .PublishToRabbitMq(RabbitMqConfiguration.With(new Uri(env.RabbitMqConnection)))
                 .CreateServiceProvider();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +60,7 @@ namespace Movie.Service
             // initialize dbContext
             using (var scope = app.ApplicationServices.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetService<IDbContextProvider<MovieContext>>();
+                var dbContext = scope.ServiceProvider.GetService<IDbContextProvider<TicketContext>>();
                 dbContext.CreateContext();
             }
 
@@ -68,7 +69,7 @@ namespace Movie.Service
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movies API V1"); });
+                app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tickets API V1"); });
                 app.UseMvc();
             }
             else

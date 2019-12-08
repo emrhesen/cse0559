@@ -16,7 +16,7 @@ namespace Domain.Business.Movie
             Register(_movieAggregateState);
         }
 
-        #region MyRegion
+        #region EmitEventSection
 
         public IExecutionResult RegisterMovie(string name,string director , int budget)
         {
