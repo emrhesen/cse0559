@@ -1,8 +1,80 @@
 version: '3.4'
 
 services:
-  services.gateway:
-    image: ${DOCKER_REGISTRY-}servicesgateway
+
+  eventstore:
+    image: eventstore
+    build:
+      context: .
+      dockerfile : EventStore.App/Dockerfile
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    - ES_CONNECTION=Server=database_sql;Database=event_sourcing;User Id=sa;Password=Pass@word
+    depends_on:
+    - database_sql
+
+  movies:
+    image : movies
+    build:
+      context: .
+      dockerfile : Movie.Service/Dockerfile
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    - ES_CONNECTION=Server=database_sql;Database=event_sourcing;User Id=sa;Password=Pass@word
+    - DB_CONNECTION=Server=database_sql;Database=movies;User Id=sa;Password=Pass@word
+    - RABBIT_CONNECTION=amqp://test:test@rabbitmq:5672
+    depends_on:
+    - database_sql  
+    - eventstore
+    - rabbitmq
+
+  tickets:
+    image : tickets
+    build:
+      context: .
+      dockerfile: TicketOrder.Service/Dockerfile
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    - ES_CONNECTION=Server=database_sql;Database=event_sourcing;User Id=sa;Password=Pass@word
+    - DB_CONNECTION=Server=database_sql;Database=tickets;User Id=sa;Password=Pass@word
+    - RABBIT_CONNECTION=amqp://test:test@rabbitmq:5672
+    depends_on:
+    - database_sql  
+    - eventstore
+    - rabbitmq
+
+  service.gateway:
+    image: service.gateway
     build:
       context: .
       dockerfile: Services.Gateway/Dockerfile
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+    - tickets
+    - movies
+    - rabbitmq
+    ports:
+    - 6543:80
+
+
+    #### RabbitMQ Container ####
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "test"
+      RABBITMQ_DEFAULT_PASS: "test"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+    - 15672:15672
+    - 5672:5672
+
+  database_sql:
+    image: microsoft/mssql-server-linux:latest
+    environment:
+    - MSSQL_SA_PASSWORD=Pass@word
+    - ACCEPT_EULA=Y
+    - MSSQL_PID=Express
+    ports:
+    - 5553:1433

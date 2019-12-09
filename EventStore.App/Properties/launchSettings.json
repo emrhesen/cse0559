@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EventStore.App": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

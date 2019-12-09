@@ -16,12 +16,12 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "trackers",
+          "Host": "tickets",
           "Port": 80
         }
       ],
-      "SwaggerKey": "trackers",
-      "UpstreamPathTemplate": "/api/v1/trackers/{everything}"
+      "SwaggerKey": "tickets",
+      "UpstreamPathTemplate": "/api/v1/tickets/{everything}"
     },
 
     {
@@ -29,32 +29,32 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "vehicles",
+          "Host": "movies",
           "Port": 80
         }
       ],
-      "SwaggerKey": "vehicles",
-      "UpstreamPathTemplate": "/api/v1/vehicles/{everything}"
+      "SwaggerKey": "movies",
+      "UpstreamPathTemplate": "/api/v1/movies/{everything}"
     }
   ],
   "SwaggerEndPoints": [
     {
-      "Key": "trackers",
+      "Key": "tickets",
       "Config": [
         {
-          "Name": "Trackers API",
+          "Name": "Tickets API",
           "Version": "v1",
-          "Url": "http://trackers/swagger/v1/swagger.json"
+          "Url": "http://tickets/swagger/v1/swagger.json"
         }
       ]
     },
     {
-      "Key": "vehicles",
+      "Key": "movies",
       "Config": [
         {
-          "Name": "Vehicles API",
+          "Name": "Movies API",
           "Version": "v1",
-          "Url": "http://vehicles/swagger/v1/swagger.json"
+          "Url": "http://movies/swagger/v1/swagger.json"
         }
       ]
     }
