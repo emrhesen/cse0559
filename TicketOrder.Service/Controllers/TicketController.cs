@@ -23,7 +23,7 @@ namespace TicketOrder.Service.Controllers
         }
 
         [HttpPost("save/sellTicket")]
-        public async Task<IActionResult> SellTicket(TicketDTO ticket, CancellationToken cancellationToken)
+        public async Task<IActionResult> SellTicket([FromBody] TicketDTO ticket, CancellationToken cancellationToken)
         {
             await _commandBus.PublishAsync(new RegisterTicketCommand(ticket.MovieId, ticket.FullName, ticket.Price),
                 cancellationToken);

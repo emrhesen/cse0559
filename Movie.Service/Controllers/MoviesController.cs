@@ -39,7 +39,7 @@ namespace Movie.Service.Controllers
         }
 
         [HttpPost("save/createMovie")]
-        public async Task<IActionResult> CreateMovie(MovieDTO movie, CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateMovie([FromBody] MovieDTO movie, CancellationToken cancellationToken)
         {
             await _commandBus.PublishAsync(new RegisterMovieCommand(movie.Name, movie.Director, movie.Budget),
                 cancellationToken);
@@ -48,7 +48,7 @@ namespace Movie.Service.Controllers
         }
 
         [HttpPost("save/updateMovie")]
-        public async Task<IActionResult> UpdateMovie(MovieDTO movie, CancellationToken cancellationToken)
+        public async Task<IActionResult> UpdateMovie([FromBody] MovieDTO movie, CancellationToken cancellationToken)
         {
             await _commandBus.PublishAsync(new UpdateMovieCommand(MovieId.With(movie.Id),movie.Name, movie.Director, movie.Budget),
                 cancellationToken);

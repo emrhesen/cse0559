@@ -39,6 +39,7 @@ namespace TicketOrder.Service
 
             services.AddAutoMapper()
                .AddSingleton(env)
+               .AddCors()
                .AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Tickets API", Version = "v1" }))
                .AddMvc()
                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -79,6 +80,11 @@ namespace TicketOrder.Service
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials());
             app.UseMvc();
         }
     }

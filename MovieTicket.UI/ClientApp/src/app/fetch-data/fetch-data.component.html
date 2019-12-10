@@ -1,24 +1,99 @@
-<h1>Weather forecast</h1>
+<h1>Movies</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<button style="margin-bottom: 10px;" class="btn btn-small btn-outline-primary" (click)="openNewMovie(content)">New
+  Movie</button>
 
-<table class='table table-striped' *ngIf="forecasts">
+<p *ngIf="!movies"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="movies">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
+      <th>Movie Id</th>
+      <th>Name</th>
+      <th>Director</th>
+      <th>Budget</th>
       <th>Summary</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.dateFormatted }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr *ngFor="let movie of movies">
+      <td>{{ movie.id.value }}</td>
+      <td>{{ movie.name }}</td>
+      <td>{{ movie.director }}</td>
+      <td>{{ movie.budget }}</td>
+      <td> <button style="margin-right: 5px;" class="btn btn-xs btn-warning"
+          (click)="openSellTicket(ticketSold,movie)">Sell
+          Ticket </button> <button class="btn btn-xs btn-danger" (click)="editNewMovie(content,movie)">Edit Movie</button> </td>
     </tr>
   </tbody>
 </table>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Movie</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label>Name</label>
+        <div class="input-group">
+          <input [(ngModel)]="movie.name" name="name" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Director</label>
+        <div class="input-group">
+          <input [(ngModel)]="movie.director" name="director" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Budget</label>
+        <div class="input-group">
+          <input [(ngModel)]="movie.budget" name="budget" class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="movieSave()">Save</button>
+  </div>
+</ng-template>
+
+<ng-template #ticketSold let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Sell Ticket</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label>Name</label>
+        <div class="input-group">
+          <input [(ngModel)]="movie.name" name="name" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Director</label>
+        <div class="input-group">
+          <input [(ngModel)]="movie.director" name="director" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Budget</label>
+        <div class="input-group">
+          <input [(ngModel)]="movie.budget" name="budget" class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="movieSave()">Save</button>
+  </div>
+</ng-template>
