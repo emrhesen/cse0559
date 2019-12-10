@@ -67,7 +67,7 @@ namespace Infrastructure.RabbitMQ
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            
         }
         
         private static RabbitMqMessage CreateRabbitMqMessage(BasicDeliverEventArgs basicDeliverEventArgs)

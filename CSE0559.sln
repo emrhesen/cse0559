@@ -39,7 +39,9 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{40EFC2DD-2489-4F44-A6E0-8B13790F0C83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicket.UI", "MovieTicket.UI\MovieTicket.UI.csproj", "{86AE2511-A8A9-4186-85C5-D42396084DE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieTicket.UI", "MovieTicket.UI\MovieTicket.UI.csproj", "{86AE2511-A8A9-4186-85C5-D42396084DE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventConsumer", "EventConsumer\EventConsumer.csproj", "{F9A587F0-1310-42CE-BE96-B7F5103C95E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,10 @@ Global
 		{86AE2511-A8A9-4186-85C5-D42396084DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86AE2511-A8A9-4186-85C5-D42396084DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86AE2511-A8A9-4186-85C5-D42396084DE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A587F0-1310-42CE-BE96-B7F5103C95E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A587F0-1310-42CE-BE96-B7F5103C95E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A587F0-1310-42CE-BE96-B7F5103C95E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A587F0-1310-42CE-BE96-B7F5103C95E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{53DEC392-09B5-4C27-ACDC-65B1DAED386F} = {209CB943-BA69-4A1C-B954-9FB20D2ED79A}
 		{40EFC2DD-2489-4F44-A6E0-8B13790F0C83} = {209CB943-BA69-4A1C-B954-9FB20D2ED79A}
 		{86AE2511-A8A9-4186-85C5-D42396084DE3} = {40EFC2DD-2489-4F44-A6E0-8B13790F0C83}
+		{F9A587F0-1310-42CE-BE96-B7F5103C95E4} = {5EF3DF07-0398-499C-A0FC-25C84AF191AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15EC9A9B-AB55-4F41-B3A1-A5751DCC54CF}
