@@ -1,4 +1,5 @@
 ﻿FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
+RUN apt-get update -y && apt-get install -y gnupg2 && curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get update -y && apt-get install -y nodejs
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
