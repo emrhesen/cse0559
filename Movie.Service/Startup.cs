@@ -80,6 +80,7 @@ namespace Movie.Service
 
             app.UseHttpsRedirection();
             app.UseCors(builder => builder
+                .WithOrigins("htttp://localhost:4200")
     .AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader()

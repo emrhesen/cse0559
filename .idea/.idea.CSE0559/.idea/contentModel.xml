@@ -4,13 +4,19 @@
     <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_CSE0559.-1890934321.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
-    <e p="$PROJECT_DIR$" t="IncludeFlat">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".dockerignore" t="Include" />
       <e p=".git/info/exclude" t="IncludeRecursive" />
+      <e p="bin" t="ExcludeRecursive" />
       <e p="CSE0559.sln" t="IncludeFlat" />
+      <e p="docker-compose.dcproj" t="IncludeRecursive" />
+      <e p="docker-compose.override.yml" t="Include" />
+      <e p="docker-compose.yml" t="Include" />
       <e p="Domain" t="IncludeRecursive">
         <e p="Application" t="Include">
           <e p="CommandServices" t="Include">
             <e p="IMovieCommandService.cs" t="Include" />
+            <e p="ITicketCommandService.cs" t="Include" />
           </e>
           <e p="QueryServices" t="Include">
             <e p="IMovieQueryService.cs" t="Include" />
@@ -20,18 +26,31 @@
         <e p="Business" t="Include">
           <e p="Movie" t="Include">
             <e p="Commands" t="Include">
-              <e p="MovieRegisterCompleteCommand.cs" t="Include" />
               <e p="RegisterMovieCommand.cs" t="Include" />
+              <e p="UpdateMovieCommand.cs" t="Include" />
             </e>
             <e p="Events" t="Include">
-              <e p="MovieRegisterCompleted.cs" t="Include" />
               <e p="MovieRegisteredEvent.cs" t="Include" />
+              <e p="MovieUpdatedEvent.cs" t="Include" />
             </e>
             <e p="MovieAggregate.cs" t="Include" />
             <e p="MovieAggregateState.cs" t="Include" />
             <e p="MovieEntity.cs" t="Include" />
             <e p="MovieId.cs" t="Include" />
             <e p="MovieSnapshot.cs" t="Include" />
+          </e>
+          <e p="TicketOrder" t="Include">
+            <e p="Commands" t="Include">
+              <e p="RegisterTicketCommand.cs" t="Include" />
+            </e>
+            <e p="Events" t="Include">
+              <e p="TicketRegisteredEvent.cs" t="Include" />
+            </e>
+            <e p="TicketAggregate.cs" t="Include" />
+            <e p="TicketAggregateState.cs" t="Include" />
+            <e p="TicketEntity.cs" t="Include" />
+            <e p="TicketId.cs" t="Include" />
+            <e p="TicketSnapshot.cs" t="Include" />
           </e>
         </e>
         <e p="Domain.csproj" t="IncludeRecursive" />
@@ -46,17 +65,34 @@
           </e>
         </e>
       </e>
+      <e p="EventConsumer" t="IncludeRecursive">
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EventConsumer.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="EventConsumer.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
       <e p="EventStore.App" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Dockerfile" t="Include" />
         <e p="EventStore.App.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netcoreapp3.0" t="Include">
+            <e p="netcoreapp2.2" t="Include">
               <e p="EventStore.App.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
         <e p="Startup.cs" t="Include" />
       </e>
       <e p="EventStore.Middleware" t="IncludeRecursive">
@@ -135,6 +171,7 @@
         <e p="Controllers" t="Include">
           <e p="MoviesController.cs" t="Include" />
         </e>
+        <e p="Dockerfile" t="Include" />
         <e p="DTO" t="Include">
           <e p="MovieDTO.cs" t="Include" />
         </e>
@@ -152,13 +189,230 @@
         <e p="Program.cs" t="Include" />
         <e p="Startup.cs" t="Include" />
       </e>
+      <e p="MovieTicket.UI" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ClientApp" t="Include">
+          <e p=".editorconfig" t="Include" />
+          <e p=".gitignore" t="Include" />
+          <e p="angular.json" t="Include" />
+          <e p="e2e" t="Include">
+            <e p="protractor.conf.js" t="Include" />
+            <e p="src" t="Include">
+              <e p="app.e2e-spec.ts" t="Include" />
+              <e p="app.po.ts" t="Include" />
+            </e>
+            <e p="tsconfig.e2e.json" t="Include" />
+          </e>
+          <e p="node_modules/@angular/animations" t="IncludeRecursive" />
+          <e p="node_modules/@angular/cli" t="IncludeRecursive" />
+          <e p="node_modules/@angular/common" t="IncludeRecursive" />
+          <e p="node_modules/@angular/compiler" t="IncludeRecursive" />
+          <e p="node_modules/@angular/compiler-cli" t="IncludeRecursive" />
+          <e p="node_modules/@angular/core" t="IncludeRecursive" />
+          <e p="node_modules/@angular/forms" t="IncludeRecursive" />
+          <e p="node_modules/@angular/http" t="IncludeRecursive" />
+          <e p="node_modules/@angular/platform-browser" t="IncludeRecursive" />
+          <e p="node_modules/@angular/platform-browser-dynamic" t="IncludeRecursive" />
+          <e p="node_modules/@angular/platform-server" t="IncludeRecursive" />
+          <e p="node_modules/@angular/router" t="IncludeRecursive" />
+          <e p="node_modules/@angular-devkit/architect" t="IncludeRecursive" />
+          <e p="node_modules/@angular-devkit/build-angular" t="IncludeRecursive" />
+          <e p="node_modules/@angular-devkit/build-optimizer" t="IncludeRecursive" />
+          <e p="node_modules/@angular-devkit/core" t="IncludeRecursive" />
+          <e p="node_modules/@angular-devkit/schematics" t="IncludeRecursive" />
+          <e p="node_modules/@ng-bootstrap/ng-bootstrap" t="IncludeRecursive" />
+          <e p="node_modules/@ngtools/webpack" t="IncludeRecursive" />
+          <e p="node_modules/@nguniversal/module-map-ngfactory-loader" t="IncludeRecursive" />
+          <e p="node_modules/@types" t="IncludeRecursive">
+            <e p="jasmine" t="IncludeRecursive" />
+            <e p="jasminewd2" t="IncludeRecursive" />
+            <e p="node" t="IncludeRecursive" />
+          </e>
+          <e p="node_modules/ajv" t="IncludeRecursive" />
+          <e p="node_modules/aspnet-prerendering" t="IncludeRecursive" />
+          <e p="node_modules/blocking-proxy" t="IncludeRecursive" />
+          <e p="node_modules/bootstrap" t="IncludeRecursive" />
+          <e p="node_modules/codelyzer" t="IncludeRecursive" />
+          <e p="node_modules/commander" t="IncludeRecursive" />
+          <e p="node_modules/core-js" t="IncludeRecursive" />
+          <e p="node_modules/domino" t="IncludeRecursive" />
+          <e p="node_modules/es6-promise" t="IncludeRecursive" />
+          <e p="node_modules/fast-deep-equal" t="IncludeRecursive" />
+          <e p="node_modules/jasmine-core" t="IncludeRecursive" />
+          <e p="node_modules/jasmine-spec-reporter" t="IncludeRecursive" />
+          <e p="node_modules/jquery" t="IncludeRecursive" />
+          <e p="node_modules/karma" t="IncludeRecursive" />
+          <e p="node_modules/karma-chrome-launcher" t="IncludeRecursive" />
+          <e p="node_modules/karma-coverage-istanbul-reporter" t="IncludeRecursive" />
+          <e p="node_modules/karma-jasmine" t="IncludeRecursive" />
+          <e p="node_modules/karma-jasmine-html-reporter" t="IncludeRecursive" />
+          <e p="node_modules/license-webpack-plugin" t="IncludeRecursive" />
+          <e p="node_modules/popper.js" t="IncludeRecursive" />
+          <e p="node_modules/portfinder" t="IncludeRecursive" />
+          <e p="node_modules/postcss" t="IncludeRecursive" />
+          <e p="node_modules/protractor" t="IncludeRecursive" />
+          <e p="node_modules/reflect-metadata" t="IncludeRecursive" />
+          <e p="node_modules/rxjs" t="IncludeRecursive" />
+          <e p="node_modules/symbol-observable" t="IncludeRecursive" />
+          <e p="node_modules/tree-kill" t="IncludeRecursive" />
+          <e p="node_modules/ts-node" t="IncludeRecursive" />
+          <e p="node_modules/tsickle" t="IncludeRecursive" />
+          <e p="node_modules/tslib" t="IncludeRecursive" />
+          <e p="node_modules/tslint" t="IncludeRecursive" />
+          <e p="node_modules/uri-js" t="IncludeRecursive" />
+          <e p="node_modules/webdriver-js-extender" t="IncludeRecursive" />
+          <e p="node_modules/zone.js" t="IncludeRecursive" />
+          <e p="package-lock.json" t="Include" />
+          <e p="package.json" t="Include" />
+          <e p="README.md" t="Include" />
+          <e p="src" t="Include">
+            <e p="app" t="Include">
+              <e p="app.component.css" t="Include" />
+              <e p="app.component.html" t="Include" />
+              <e p="app.component.ts" t="Include" />
+              <e p="app.module.ts" t="Include" />
+              <e p="app.server.module.ts" t="Include" />
+              <e p="counter" t="Include">
+                <e p="counter.component.html" t="Include" />
+                <e p="counter.component.spec.ts" t="Include" />
+                <e p="counter.component.ts" t="Include" />
+              </e>
+              <e p="fetch-data" t="Include">
+                <e p="fetch-data.component.html" t="Include" />
+                <e p="fetch-data.component.ts" t="Include" />
+              </e>
+              <e p="home" t="Include">
+                <e p="home.component.html" t="Include" />
+                <e p="home.component.ts" t="Include" />
+              </e>
+              <e p="nav-menu" t="Include">
+                <e p="nav-menu.component.css" t="Include" />
+                <e p="nav-menu.component.html" t="Include" />
+                <e p="nav-menu.component.ts" t="Include" />
+              </e>
+            </e>
+            <e p="assets" t="Include">
+              <e p=".gitkeep" t="Include" />
+            </e>
+            <e p="browserslist" t="Include" />
+            <e p="environments" t="Include">
+              <e p="environment.prod.ts" t="Include" />
+              <e p="environment.ts" t="Include" />
+            </e>
+            <e p="index.html" t="Include" />
+            <e p="karma.conf.js" t="Include" />
+            <e p="main.ts" t="Include" />
+            <e p="polyfills.ts" t="Include" />
+            <e p="styles.css" t="Include" />
+            <e p="test.ts" t="Include" />
+            <e p="tsconfig.app.json" t="Include" />
+            <e p="tsconfig.server.json" t="Include" />
+            <e p="tsconfig.spec.json" t="Include" />
+            <e p="tslint.json" t="Include" />
+          </e>
+          <e p="tsconfig.json" t="Include" />
+          <e p="tslint.json" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="SampleDataController.cs" t="Include" />
+        </e>
+        <e p="Dockerfile" t="Include" />
+        <e p="MovieTicket.UI.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="MovieTicket.UI.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="_ViewImports.cshtml" t="Include" />
+          <e p="Error.cshtml" t="Include" />
+          <e p="Error.cshtml.cs" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="favicon.ico" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
+      <e p="Services.Gateway" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Dockerfile" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Services.Gateway.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ocelot.json" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Services.Gateway.csproj" t="IncludeRecursive" />
+        <e p="Startup.cs" t="Include" />
+      </e>
       <e p="src" t="Include">
         <e p="Apps" t="Include" />
+        <e p="Gateway" t="Include" />
         <e p="Infrastructures" t="Include" />
         <e p="MicroServices" t="Include">
           <e p="Movie" t="Include" />
+          <e p="TicketOrder" t="Include" />
         </e>
+        <e p="Presentation" t="Include" />
+      </e>
+      <e p="Ticket.Entityframework.ReadStore" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EntityframeworkContext" t="Include">
+          <e p="TicketContext.cs" t="Include" />
+          <e p="TicketContextProvider.cs" t="Include" />
+        </e>
+        <e p="Module" t="Include">
+          <e p="TicketReadStoreModule.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Ticket.Entityframework.ReadStore.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ReadModels" t="Include">
+          <e p="TicketReadModel.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="TicketCommandService.cs" t="Include" />
+        </e>
+        <e p="Ticket.Entityframework.ReadStore.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="TicketOrder.Service" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="TicketController.cs" t="Include" />
+        </e>
+        <e p="Dockerfile" t="Include" />
+        <e p="DTO" t="Include">
+          <e p="TicketDTO.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="TicketOrder.Service.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Startup.cs" t="Include" />
+        <e p="TicketOrder.Service.csproj" t="IncludeRecursive" />
       </e>
     </e>
   </component>

@@ -32,7 +32,8 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">New Movie</h4>
+    <h4 class="modal-title" id="modal-basic-title" *ngIf="!movie.id"> New Movie</h4>
+    <h4 class="modal-title" id="modal-basic-title" *ngIf="movie.id"> Update Movie</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -60,7 +61,8 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="movieSave()">Save</button>
+    <button type="button" class="btn btn-outline-dark" *ngIf="!movie.id" (click)="movieSave()">Save</button>
+    <button type="button" class="btn btn-outline-dark" *ngIf="movie.id" (click)="movieUpdate()">Update</button>
   </div>
 </ng-template>
 
@@ -74,26 +76,26 @@
   <div class="modal-body">
     <form>
       <div class="form-group">
-        <label>Name</label>
+        <label> Movie Name </label>
         <div class="input-group">
-          <input [(ngModel)]="movie.name" name="name" class="form-control">
+          <label>{{movie.name}}</label>
         </div>
       </div>
       <div class="form-group">
-        <label>Director</label>
+        <label>Full Name</label>
         <div class="input-group">
-          <input [(ngModel)]="movie.director" name="director" class="form-control">
+          <input [(ngModel)]="ticket.fullName" name="fullname" class="form-control">
         </div>
       </div>
       <div class="form-group">
-        <label>Budget</label>
+        <label>Price</label>
         <div class="input-group">
-          <input [(ngModel)]="movie.budget" name="budget" class="form-control">
+          <input [(ngModel)]="ticket.price" name="price" class="form-control">
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="movieSave()">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="sellTicket()">Save</button>
   </div>
 </ng-template>
