@@ -41,7 +41,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieTicket.UI", "MovieTicket.UI\MovieTicket.UI.csproj", "{86AE2511-A8A9-4186-85C5-D42396084DE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventConsumer", "EventConsumer\EventConsumer.csproj", "{F9A587F0-1310-42CE-BE96-B7F5103C95E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventConsumer", "EventConsumer\EventConsumer.csproj", "{F9A587F0-1310-42CE-BE96-B7F5103C95E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{BC796D8B-C89C-4D1F-93B1-6677CB3E0F2B}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.txt = Readme.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
