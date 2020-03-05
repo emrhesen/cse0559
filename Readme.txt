@@ -1,4 +1,6 @@
 ﻿
+CSE 0559 Yazılım Mimarisi ve Entegrasyonu - CQRS ve Event Sourcing
+
 * Her proje için docker file hazırlandı ardından Proje nin oldu dizinde docker compose up yapıldığında tüm projeler ayağa kalkacak şekilde yaml dosyası düzenlendi.
 * API Gateway (Ocelot) -> localhost:6543
 * UI -> localhost:3461 
